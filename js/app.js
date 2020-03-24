@@ -141,7 +141,16 @@ $("#paises").change(function () {
                        document.querySelector(".confirmedCountry").textContent = new Intl.NumberFormat().format(element.TotalConfirmed);
                        document.querySelector(".deathsCountry").textContent = new Intl.NumberFormat().format(element.TotalDeaths);
                        document.querySelector(".recoveredCountry").textContent=new Intl.NumberFormat().format(element.TotalRecovered);
-                       document.querySelector(".newConfirmed").textContent = new Intl.NumberFormat().format(element.NewConfirmed);
+
+                       if (element.NewConfirmed > 0) {
+                          document.querySelector(".newConfirmed").textContent = new Intl.NumberFormat().format(element.NewConfirmed);
+                       }
+                       else{
+                          document.querySelector(".newConfirmed").textContent = 0;
+                       }
+                       
+
+
                         document.querySelector('.confirmatedDate').textContent = data.Date.slice(0, -20);
                         document.querySelector('.recoveredDate').textContent = data.Date.slice(0, -20);
                         document.querySelector('.deathsDate').textContent = data.Date.slice(0, -20);
